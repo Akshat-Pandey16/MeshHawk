@@ -40,11 +40,13 @@ MeshHawk is a web application built on React and FASTApi designed for scanning a
    - ![Network Details Screenshot Placeholder](images/moredetails.png)
    - ![Network Details Screenshot Placeholder](images/report.png)
 
-## Install and Run
+## Clone, Install and Run
 
 Ensure you have the latest versions of Node.js and Python installed on your machine.
 
 ```bash
+git clone https://github.com/Akshat-Pandey16/MeshHawk
+cd MeshHawk
 npm start
 ```
 
@@ -69,3 +71,7 @@ This will perform the following steps:
 
    - The server communicates with the scanning device via SSH.
    - If you need to change the IP address or password for the SSH device, make the necessary modifications in the scripts located at Backend/scripts/.
+
+
+## Contribution
+Feel free to contribute by opening issues, proposing new features, or submitting pull requests. We welcome your feedback and collaboration.
