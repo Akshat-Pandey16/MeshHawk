@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pyrebase4
+pandas
+matplotlib
+pyshark
+python-multipart
+networkx
