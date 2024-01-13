@@ -8,9 +8,9 @@
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "start-api": "cd Backend/ && if [ ! -d venv ]; then python3 -m venv venv && . venv/bin/activate && pip install -r requirements.txt; fi && . venv/bin/activate && uvicorn main:app --reload",
+    "start-api": "node scripts/start-api.cjs",
     "start-react": "npm install && npm run dev",
-    "start": "if ! command -v concurrently &> /dev/null; then npm install -g concurrently; fi && concurrently \"npm run start-api\" \"npm run start-react\""
+    "start": "npm install -g concurrently && concurrently \"npm run start-api\" \"npm run start-react\""
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.1.12",
