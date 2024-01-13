@@ -72,6 +72,15 @@ This will perform the following steps:
    - The server communicates with the scanning device via SSH.
    - If you need to change the IP address or password for the SSH device, make the necessary modifications in the scripts located at Backend/scripts/.
 
+## Contributors
+
+[Akshat Pandey](https://github.com/Akshat-Pandey16) <br>
+[Sanskar Dwivedi](https://github.com/Knighthawk-Leo) <br>
+[Yash Sakre](https://github.com/Yash-Sakre) <br>
+[Ranjit Ranjan](https://github.com/ranjit7858)<br>
+[Jayash Tripathi](https://github.com/JayashTripathy)<br>
+[Poorva Diwan](https://github.com/poorvadiwan)<br>
+
 
 ## Contribution
 Feel free to contribute by opening issues, proposing new features, or submitting pull requests. We welcome your feedback and collaboration.
