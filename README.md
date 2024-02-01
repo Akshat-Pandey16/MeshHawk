@@ -13,9 +13,15 @@ MeshHawk is a web application built on React and FASTApi designed for scanning a
 - **File Upload:** Allow users to upload previously captured CSV and PCAPNG files for analysis.
 - **Network Insights:** Access detailed information about connected devices within the identified mesh network.
 
-## Installation
+## Clone, Install and Run
 
-*Detailed installation steps will be provided later.*
+Ensure you have the latest versions of Node.js and Python installed on your machine. Also, make sure to install tshark from wireshark website inorder for analysis purpose.
+
+```bash
+git clone https://github.com/Akshat-Pandey16/MeshHawk
+cd MeshHawk
+npm start
+```
 
 ## Usage
 
@@ -40,15 +46,6 @@ MeshHawk is a web application built on React and FASTApi designed for scanning a
    - ![Network Details Screenshot Placeholder](images/moredetails.png)
    - ![Network Details Screenshot Placeholder](images/report.png)
 
-## Clone, Install and Run
-
-Ensure you have the latest versions of Node.js and Python installed on your machine.
-
-```bash
-git clone https://github.com/Akshat-Pandey16/MeshHawk
-cd MeshHawk
-npm start
-```
 
 **To stop server, press Ctrl+C**
 
