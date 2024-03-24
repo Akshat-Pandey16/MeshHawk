@@ -7,10 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview",
-    "start-api": "node scripts/start-api.cjs",
-    "start-react": "npm install && npm run dev",
-    "start": "npm install -g concurrently && concurrently \"npm run start-api\" \"npm run start-react\""
+    "preview": "vite preview"
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.1.12",

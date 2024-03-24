@@ -6,3 +6,4 @@ matplotlib
 pyshark
 python-multipart
 networkx
+setuptools
