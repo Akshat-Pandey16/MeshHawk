@@ -1,27 +1,30 @@
-import networkx as nx
-import matplotlib.pyplot as plt
 from fastapi import FastAPI, UploadFile, File, Request, HTTPException, Depends, status
 from fastapi.responses import JSONResponse, FileResponse
 from tempfile import NamedTemporaryFile
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 from fastapi.middleware.cors import CORSMiddleware
 import pyshark
-from models import *
+from models import SignupRequest, Token
 import pyrebase
 import asyncio
-from srcdest import *
+from srcdest import (
+    create_graph,
+    make_components,
+    count_disconnected_graphs,
+    bssids,
+    mac_set,
+    create_graph_components,
+    calculate_diameter,
+    calculate_density,
+    is_mesh_topology,
+    fetch_mac_vendor,
+)
 import pandas as pd
 import io
-from fastapi import FastAPI, Query
-from fastapi.responses import JSONResponse
-from subprocess import Popen, PIPE
 import os
 import subprocess
-from fastapi import FastAPI, Query, BackgroundTasks
-import uuid
-import shutil
+from fastapi import BackgroundTasks
 
-# from secondsec import *
 app = FastAPI()
 
 app.add_middleware(
@@ -58,7 +61,7 @@ def signup(request: SignupRequest):
     try:
         user = auth.create_user_with_email_and_password(request.email, request.password)
         return {"message": "Signup successful", "user": f"{user['email']}"}
-    except Exception as e:
+    except Exception:
         raise HTTPException(status_code=400, detail="Signup failed")
 
 
@@ -107,9 +110,7 @@ def is_multicast_mac(mac_address):
 
 def extract_addresses(pcapng_file):
     capture = pyshark.FileCapture(pcapng_file)
-    ls = list()
     ls_qos = list()
-    qos_set = set()
     idx = 0
     seen_sublists = set()
 
@@ -181,8 +182,6 @@ async def upload_pcap(pcapng_file: UploadFile = UploadFile(...)):
     no_of_disconnected_graphs = count_disconnected_graphs(graph)
 
     component_info = []
-
-    num_components = len(components)
 
     for component_number, component_edges in list(components.items()):
         macset = mac_set(component_edges)
